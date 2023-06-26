@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Test</title>
+	</head>
+	<body>
+		<h1 style="margin-bottom:25px">{{deckname}}: Card #{{card.card_id}}</h1>
+		<h1 style="margin-bottom:25px">Question: {{card.question}}</h1>
+		<h2 style="margin-bottom:25px">Difficulty Level:</h2>
+		<form action="{{url_for('views.test_helper',username=username,deckname=deckname,card_id=card.card_id)}}" method="POST" style="margin-bottom:25px">
+			<div>
+				<input type="radio" name="difficulty" value="Easy">
+				<label>Easy</label>
+			</div>
+			<div>
+				<input type="radio" name="difficulty" value="Medium">
+				<label>Medium</label>
+			</div>
+			<div style="margin-bottom:25px">
+				<input type="radio" name="difficulty" value="Difficult">
+				<label>Difficult</label>
+			</div>
+			<div>
+				<input type="submit" name="Submit">
+			</div>
+		</form>
+	</body>
+</html>

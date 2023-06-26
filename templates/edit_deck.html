@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Edit Deck {{deckname}}</title>
+	</head>
+	<body>
+		<h1>Edit Deck:</h1>
+
+		<form action="{{url_for('views.edit_deck',username=username,deckname=deckname)}}" method="POST">
+			<div style="margin-bottom: 25px; font-size: 1.5em; font-weight: bolder">
+				<label>Deck Name:</label>
+				<input type="text" name="deckname" value={{deckname}} required>
+			</div>
+			<div style="margin-bottom: 25px">
+				<table border="solid 1px black" cellpadding="5px" style="margin-bottom: 25px">
+					<tr>
+						<th>Card No.</th>
+						<th>Question</th>
+						<th>Answer</th>
+						<th>Manage Card</th>
+					</tr>
+					{% for i in range(cards|length) %}
+					<tr>
+						<td>{{i+1}}</td>
+						<td>{{cards[i].question}}</td>
+						<td>{{cards[i].answer}}</td>
+						<td>
+							<a href="{{url_for('views.delete_card',username=username,deckname=deckname,card_id=cards[i].card_id)}}">Delete</a>
+							<a href="{{url_for('views.edit_card',username=username,deckname=deckname,card_id=cards[i].card_id)}}">Edit</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div style="margin-bottom: 25px">
+				<a href="{{url_for('views.create_card',username=username,deckname=deckname)}}">Add Card</a>
+			</div>
+			<div style="margin-bottom:25px">
+				<input type="submit" value="Save">
+			</div>
+			<div style="margin-bottom: 25px">
+				<a href="{{url_for('views.dashboard',username=username)}}">Go Back</a>
+			</div>
+		</form>
+	</body>
+</html>

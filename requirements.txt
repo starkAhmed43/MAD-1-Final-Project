@@ -1,0 +1,4 @@
+wheel
+flask
+flask-sqlalchemy
+flask-restful

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Reset Password</title>
+	</head>
+	<body>
+		<h1>Reset Password:</h1>
+		<form action="{{url_for('views.reset_pwd')}}" method="POST">
+			<div style="margin-bottom:25px">
+				<label>Username</label>
+				<input type="text" name="username" required>
+			</div>
+			<div style="margin-bottom:25px">
+				<label>New Password</label>
+				<input type="password" name="password" required>
+			</div>
+			<div style="margin-bottom:25px">
+				<input type="submit" value="Submit">
+			</div>
+			<div style="margin-bottom:25px">
+				<h3>Guidelines for password:</h3>
+				<ol type="1">
+					<li>Password is required and should be a string</li>
+					<li>Cannot contain special characters</li>
+				</ol>
+			</div>
+			<div>
+				<a href="{{url_for('views.index')}}">Go back</a>
+			</div>
+		</form>
+	</body>
+</html>

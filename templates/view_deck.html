@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{deckname}}</title>
+	</head>
+	<body>
+		<h1>{{deckname}}:</h1>
+		<div style="margin-bottom: 25px">
+			<table border="solid 1px black" cellpadding="5px" style="margin-bottom: 25px">
+				<tr>
+					<th>Card No.</th>
+					<th>Question</th>
+					<th>Last Score</th>
+					<th>Last Reviewed</th>
+					<th>Difficulty Level</th>
+					<th>Tests</th>
+				</tr>
+				{% for i in range(cards|length) %}
+				<tr>
+					<td>{{i+1}}</td>
+					<td>{{cards[i].question}}</td>
+					<td>{{cards[i].last_score}}</td>
+					<td>{{cards[i].last_reviewed}}</td>
+					<td>{{cards[i].difficulty}}</td>
+					<td>
+						<a href="{{url_for('views.test_helper',username=username,deckname=deckname,card_id=cards[i].card_id)}}">Start Test</a>
+						<a href="{{url_for('views.view_card',username=username,deckname=deckname,card_id=cards[i].card_id)}}">View Answer</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<div style="margin-bottom: 25px">
+			<a href="{{url_for('views.dashboard',username=username)}}">Go Back</a>
+		</div>
+	</body>
+</html>

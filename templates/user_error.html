@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login Page</title>
+	</head>
+	<body>
+		<h1>Incorrect username or password!</h1>
+		<div style="margin-bottom:25px">
+			<h3>Guidelines for username and password:</h3>
+			<ol type="1">
+				<li>Username is required and must begin with an english alphabet and mustn't contain special characters</li>
+				<li>Password is required and should be a string. Cannot contain special characters</li>
+			</ol>
+		</div>
+		<div style="margin-bottom:25px">
+			<a href="{{url_for('views.index')}}">Try again</a>
+		</div>
+		<div style="margin-bottom:25px">
+			<a href="{{url_for('views.create_user')}}">Dont have an account?</a>
+		</div>
+		<div style="margin-bottom:25px">
+			<a href="{{url_for('views.reset_pwd')}}">Forgot Password?</a>
+		</div>
+	</body>
+</html>

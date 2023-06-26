@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Test</title>
+	</head>
+	<body>
+		<h1>{{deckname}}: Card #{{card.card_id}}</h1>
+		<h2>Question: {{card.frontend}}</h2>
+		<h3>Difficulty Level:</h3>
+		<div style="margin-bottom:25px">
+			<form action="{{url_for('views.test_card',username=username,deckname=deckname,card_id=card.card_id)}}" method="POST">
+				<div>
+					<input type="radio" name="difficulty" value="easy">
+					<label>Easy</label>
+				</div>
+				<div>
+					<input type="radio" name="difficulty" value="medium">
+					<label>Medium</label>
+				</div>
+				<div>
+					<input type="radio" name="difficulty" value="difficult">
+					<label>Difficult</label>
+				</div>
+			</form>
+		</div>
+		<div>
+			<a href="{{url_for('views.view_deck',username=username,deckname=deckname)}}">Cancel</a>
+		</div>
+	</body>
+</html>

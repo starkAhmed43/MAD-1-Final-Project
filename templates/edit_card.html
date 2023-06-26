@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Edit Card</title>
+	</head>
+	<body>
+		<h1>Edit Card</h1>
+		<div>
+			<form action="{{url_for('views.edit_card',username=username,deckname=deckname,card_id=card.card_id)}}" method="POST">
+				<div style="margin-bottom:25px">
+					<label style="font-size: 1.5em; font-weight: bolder">Question: </label>
+					<input style="font-size: 1.5em;" type="text" name="question" value="{{card.question}}" required>
+				</div>
+
+				<div style="margin-bottom:25px">
+					<label style="font-size: 1.5em; font-weight: bolder">Answer: </label>
+					<input style="font-size: 1.5em;" type="text" name="answer" value="{{card.answer}}" required>
+				</div>
+
+				<div style="margin-bottom:25px">
+					<input type="submit" value="Submit">
+				</div>
+				<div>
+					<a href="{{url_for('views.edit_deck',username=username,deckname=deckname)}}">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

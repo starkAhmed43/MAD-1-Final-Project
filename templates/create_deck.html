@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Create Deck</title>
+	</head>
+	<body>
+		<h1>Create A New Deck:</h1>
+		<form action="{{url_for('views.create_deck',username=username)}}" method="POST">
+			<div style="margin-bottom:25px">
+				<label>Deck Name</label>
+				<input type="text" name="deckname" required>
+			</div>
+			<div style="margin-bottom:25px">
+				<input type="submit" value="Submit">
+			</div>
+			<div>
+				<a href="{{url_for('views.dashboard',username=username)}}">Cancel</a>
+			</div>
+		</form>
+	</body>
+</html>

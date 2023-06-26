@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<h1>Hello {{username}}!</h1>
+		<h1>Dashboard</h1>
+		<div>
+			<table border="solid 1px black" cellpadding="5px" style="margin-bottom: 25px">
+				<tr>
+					<th>Deck Name</th>
+					<th>Last reviewed</th>
+					<th>Last Score</th>
+					<th>Manage Deck</th>
+				</tr>
+				{% for deck in decks %}
+					<tr>
+						<td>
+							<a href="{{url_for('views.view_deck',deckname=deck.deckname,username=username)}}">{{deck.deckname}}</a>
+						</td>
+						<td>{{deck.last_reviewed}}</td>
+						<td>{{deck.total_score}}</td>
+						<td>
+
+							<a href="{{url_for('views.delete_deck',deckname=deck.deckname,username=username)}}">Delete</a>
+							<a href="{{url_for('views.edit_deck',deckname=deck.deckname,username=username)}}">Edit</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<div style="margin-bottom: 25px">
+			<a href="{{url_for('views.create_deck',username=username)}}">Create a new deck</a>
+		</div>
+		<div style="margin-bottom: 25px">
+			<a href="{{url_for('views.index')}}">Logout</a>
+		</div>
+	</body>
+</html>
